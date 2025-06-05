@@ -14,7 +14,7 @@ const Modal = ({ isOpen, onClose, imageUrl, alt, description }: ModalProps) => {
   };
 
   const handleModalClick = (e: React.MouseEvent) => {
-    e.stopPropagation(); // არ დახუროს მოდალი შიგნით დაკლიკებისას
+    e.stopPropagation();
   };
 
   return (

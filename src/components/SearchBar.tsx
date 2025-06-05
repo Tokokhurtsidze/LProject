@@ -1,18 +1,26 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
-export const SearchBar = ({ onSearch }: { onSearch: (q: string) => void }) => {
-  const [input, setInput] = useState('');
-  
+interface SearchBarProps {
+  onSearch: (query: string) => void;
+  initialValue?: string;
+}
+
+export const SearchBar = ({ onSearch, initialValue = "" }: SearchBarProps) => {
+  const [input, setInput] = useState(initialValue);
+
   useEffect(() => {
-    const timer = setTimeout(() => onSearch(input), 500);
+    const timer = setTimeout(() => {
+      onSearch(input.trim() || "nature");
+    }, 500);
+
     return () => clearTimeout(timer);
-  }, [input]);
+  }, [input, onSearch]);
 
   return (
     <input
       type="text"
-      className="border p-2 rounded w-full"
       placeholder="Search photos..."
+      className="border p-2 mb-4 w-full rounded"
       value={input}
       onChange={(e) => setInput(e.target.value)}
     />
