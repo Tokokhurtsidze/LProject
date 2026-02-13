@@ -10,7 +10,7 @@ export const SearchBar = ({ onSearch, initialValue = "" }: SearchBarProps) => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      onSearch(input.trim() || "nature");
+    onSearch(input.trim());
     }, 500);
 
     return () => clearTimeout(timer);
