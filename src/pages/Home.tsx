@@ -17,7 +17,7 @@ interface Photo {
   };
 }
 function Home() {
-  const [query, setQuery] = useState("nature");
+  const [query, setQuery] = useState("");
   const [page, setPage] = useState(1);
   const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
